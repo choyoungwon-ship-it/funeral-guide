@@ -302,6 +302,149 @@
     font-family: 'Noto Sans KR', sans-serif;
   }
 
+  /* 화환 가격 카드 */
+  .flower-price-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 12px;
+    margin: 20px 0;
+  }
+  .flower-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 16px 12px;
+    text-align: center;
+    transition: all 0.2s;
+  }
+  .flower-card:hover {
+    border-color: var(--primary-light);
+    background: var(--hover-bg);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(46,107,94,0.1);
+  }
+  .flower-card.featured {
+    border-color: var(--primary-light);
+    background: #eef5f3;
+  }
+  .flower-card.black {
+    border-color: #888;
+    background: #f5f5f3;
+  }
+  .flower-card-icon { font-size: 24px; margin-bottom: 8px; }
+  .flower-card-name {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 8px;
+    line-height: 1.4;
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+  .flower-card-price {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--primary);
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+  .flower-card.black .flower-card-price { color: #333; }
+  .flower-card-tag {
+    display: inline-block;
+    font-size: 0.68rem;
+    background: var(--hover-bg);
+    color: var(--primary);
+    border: 1px solid var(--primary-light);
+    border-radius: 20px;
+    padding: 2px 8px;
+    margin-top: 6px;
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+  .flower-card.black .flower-card-tag {
+    background: #eee;
+    color: #555;
+    border-color: #bbb;
+  }
+
+  /* 리본문구 탭 */
+  .ribbon-tabs {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+  }
+  .ribbon-tab {
+    padding: 7px 18px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--text-mid);
+    cursor: pointer;
+    font-family: 'Noto Sans KR', sans-serif;
+    transition: all 0.18s;
+  }
+  .ribbon-tab.active,
+  .ribbon-tab:hover {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+  }
+  .ribbon-panel { display: none; }
+  .ribbon-panel.active { display: block; }
+  .ribbon-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.87rem;
+    margin-bottom: 16px;
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+  .ribbon-table th {
+    background: #f0ede8;
+    color: var(--text-light);
+    font-weight: 700;
+    padding: 9px 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+  }
+  .ribbon-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-mid);
+    line-height: 1.6;
+    vertical-align: top;
+  }
+  .ribbon-table tr:last-child td { border-bottom: none; }
+  .ribbon-table td:first-child {
+    color: var(--text-light);
+    min-width: 100px;
+    font-size: 0.82rem;
+    font-weight: 700;
+  }
+  .ribbon-chip {
+    display: inline-block;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 3px 10px;
+    font-size: 0.82rem;
+    margin: 2px 3px 2px 0;
+    color: var(--text-dark);
+  }
+  .ribbon-notice {
+    background: #fdf9f0;
+    border: 1px solid #e8d9b0;
+    border-left: 4px solid var(--accent);
+    border-radius: 0 4px 4px 0;
+    padding: 12px 16px;
+    margin-top: 12px;
+    font-size: 0.84rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+
   /* Responsive */
   @media (max-width: 720px) {
     .layout { grid-template-columns: 1fr; }
@@ -359,6 +502,13 @@
           <a href="#" class="nav-link" data-page="national-cemetery">국립묘지 안장절차</a>
         </nav>
       </div>
+      <div class="sidebar-section">
+        <div class="sidebar-title">근조화환 안내</div>
+        <nav>
+          <a href="#" class="nav-link" data-page="flower-price">화환 종류 및 가격</a>
+          <a href="#" class="nav-link" data-page="flower-ribbon">화환 리본 문구</a>
+        </nav>
+      </div>
     </aside>
 
     <!-- Main Content -->
@@ -406,6 +556,14 @@
             <ul>
               <li>사망신고</li>
               <li>국립묘지 안장절차</li>
+            </ul>
+          </a>
+          <a class="category-card" href="#" data-goto="flower-price">
+            <h3>🌸 근조화환 안내</h3>
+            <ul>
+              <li>화환 종류 및 가격</li>
+              <li>화환 리본 문구</li>
+              <li>일반 · 불교 · 기독교 · 천주교</li>
             </ul>
           </a>
         </div>
@@ -942,6 +1100,264 @@
   </div>
 </div>
 
+      <!-- 화환 종류 및 가격 -->
+      <div class="content-section" id="page-flower-price">
+        <div class="page-title">화환 종류 및 가격</div>
+        <div class="breadcrumb">장례정보 <span>›</span> 근조화환 안내 <span>›</span> 화환 종류 및 가격</div>
+        <h2>근조화환 종류 및 가격표</h2>
+        <p>모든 화환은 정품 생화 기준이며, 거리에 따라 배송비가 추가 될수있습니다. 오전에서 오후5시~7시까지 주문시 당일 배달이 원칙이며, 빈소 호실까지 직접 설치해 드립니다.</p>
+
+<div class="flower-price-grid">
+  <div class="flower-card">
+    <div class="flower-card-icon">💐</div>
+    <div class="flower-card-name">근조 3단화환<br>일반형</div>
+    <div class="flower-card-price">59,000원</div>
+    <a href="http://www.21flower.com/shop/item.php?it_id=B201" class="flower-card-tag" style="text-decoration: none; display: block;">화환 확인하기</a>
+  </div>
+
+  <div class="flower-card featured">
+    <div class="flower-card-icon">💐</div>
+    <div class="flower-card-name">근조 3단화환<br>고급형</div>
+    <div class="flower-card-price">79,000원</div>
+    <a href="http://www.21flower.com/shop/item.php?it_id=B203" class="flower-card-tag" style="text-decoration: none; display: block;">화환 확인하기</a>
+  </div>
+
+  <div class="flower-card featured">
+    <div class="flower-card-icon">💐</div>
+    <div class="flower-card-name">근조 3단화환<br>특대형</div>
+    <div class="flower-card-price">99,000원</div>
+    <a href="http://www.21flower.com/shop/item.php?it_id=B205" class="flower-card-tag" style="text-decoration: none; display: block;">화환 확인하기</a>
+  </div>
+
+  <div class="flower-card featured">
+    <div class="flower-card-icon">💐</div>
+    <div class="flower-card-name">근조 3단화환<br>특특대형</div>
+    <div class="flower-card-price">149,000원</div>
+    <a href="http://www.21flower.com/shop/item.php?it_id=B206" class="flower-card-tag" style="text-decoration: none; display: block;">화환 확인하기</a>
+  </div>
+
+  <div class="flower-card">
+    <div class="flower-card-icon">🌼</div>
+    <div class="flower-card-name">근조 4단화환</div>
+    <div class="flower-card-price">120,000원</div>
+    <a href="http://www.21flower.com/shop/item.php?it_id=B207" class="flower-card-tag" style="text-decoration: none; display: block;">화환 확인하기</a>
+  </div>
+
+  <div class="flower-card black">
+    <div class="flower-card-icon">🖤</div>
+    <div class="flower-card-name">블랙리본 3단화환<br>일반형</div>
+    <div class="flower-card-price">84,000원</div>
+    <a href="http://www.21flower.com/shop/item.php?it_id=B220" class="flower-card-tag" style="text-decoration: none; display: block;">화환 확인하기</a>
+  </div>
+
+  <div class="flower-card">
+    <div class="flower-card-icon">🌿</div>
+    <div class="flower-card-name">오브제 1단화환</div>
+    <div class="flower-card-price">60,000원</div>
+    <a href="http://www.21flower.com/shop/item.php?it_id=B212" class="flower-card-tag" style="text-decoration: none; display: block;">화환 확인하기</a>
+  </div>
+
+  <div class="flower-card">
+    <div class="flower-card-icon">🌿</div>
+    <div class="flower-card-name">오브제 2단화환</div>
+    <div class="flower-card-price">120,000원</div>
+    <a href="http://www.21flower.com/shop/item.php?it_id=B213" class="flower-card-tag" style="text-decoration: none; display: block;">화환 확인하기</a>
+  </div>
+
+  <div class="flower-card">
+    <div class="flower-card-icon">🌼</div>
+    <div class="flower-card-name">근조 영정바구니</div>
+    <div class="flower-card-price">59,000원</div>
+    <a href="http://www.21flower.com/shop/item.php?it_id=B211" class="flower-card-tag" style="text-decoration: none; display: block;">화환 확인하기</a>
+  </div>
+
+  <div class="flower-card">
+    <div class="flower-card-icon">🌼</div>
+    <div class="flower-card-name">근조 5단화환</div>
+    <div class="flower-card-price">200,000원</div>
+    <a href="http://www.21flower.com/shop/item.php?it_id=B208" class="flower-card-tag" style="text-decoration: none; display: block;">화환 확인하기</a>
+  </div>
+</div>
+
+        <div class="info-box">
+          <p>💡 <strong>당일 배달 안내:</strong> 오전에서 오후5시~7시까지 주문시 당일 배달이 원칙이며, 배송 기사가 빈소 호실까지 직접 설치해 드립니다. 별도 수령 절차가 없어 편리합니다.</p>
+        </div>
+      </div>
+
+      <!-- 화환 리본 문구 -->
+      <div class="content-section" id="page-flower-ribbon">
+        <div class="page-title">화환 리본 문구</div>
+        <div class="breadcrumb">장례정보 <span>›</span> 근조화환 안내 <span>›</span> 화환 리본 문구</div>
+        <h2>화환 리본 문구 안내</h2>
+        <p>화환 리본은 상단(좌측)에 애도 문구, 하단(우측)에 보내는 이를 적습니다. 고인의 종교에 맞는 문구를 선택하시면 됩니다.</p>
+
+        <div class="ribbon-tabs">
+          <button class="ribbon-tab active" onclick="switchRibbonTab(this,'ribbon-general')">일반</button>
+          <button class="ribbon-tab" onclick="switchRibbonTab(this,'ribbon-buddhist')">불교</button>
+          <button class="ribbon-tab" onclick="switchRibbonTab(this,'ribbon-christian')">기독교</button>
+          <button class="ribbon-tab" onclick="switchRibbonTab(this,'ribbon-catholic')">천주교</button>
+        </div>
+
+        <!-- 일반 -->
+        <div id="ribbon-general" class="ribbon-panel active">
+          <h3>일반 리본 문구</h3>
+          <table class="ribbon-table">
+            <thead><tr><th>위치</th><th>리본 문구 예시</th></tr></thead>
+            <tbody>
+              <tr>
+                <td>상단 리본<br>(좌측)</td>
+                <td>
+                  <span class="ribbon-chip">근조(謹弔)</span>
+                  <span class="ribbon-chip">삼가 고인의 명복을 빕니다</span>
+                  <span class="ribbon-chip">애도(哀悼)</span>
+                  <span class="ribbon-chip">추모(追慕)</span>
+                  <span class="ribbon-chip">영면하소서</span>
+                  <span class="ribbon-chip">부의(賻儀)</span>
+                </td>
+              </tr>
+              <tr>
+                <td>하단 리본<br>(우측, 보내는 이)</td>
+                <td>
+                  <span class="ribbon-chip">○○회사 임직원 일동</span>
+                  <span class="ribbon-chip">○○부서 일동</span>
+                  <span class="ribbon-chip">○○○ 올림</span>
+                  <span class="ribbon-chip">○○ 동문 일동</span>
+                  <span class="ribbon-chip">○○ 동창회 일동</span>
+                  <span class="ribbon-chip">○○ 친목회 일동</span>
+                </td>
+              </tr>
+              <tr>
+                <td>자주 쓰는<br>문구</td>
+                <td>
+                  <span class="ribbon-chip">고인의 명복을 빕니다</span>
+                  <span class="ribbon-chip">삼가 조의를 표합니다</span>
+                  <span class="ribbon-chip">삼가 위로의 말씀을 드립니다</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="ribbon-notice">💡 일반 리본 문구는 종교와 관계없이 누구에게나 무난하게 사용할 수 있습니다. 모르는 경우 '근조'나 '삼가 고인의 명복을 빕니다'를 기본으로 사용하시면 됩니다.</div>
+        </div>
+
+        <!-- 불교 -->
+        <div id="ribbon-buddhist" class="ribbon-panel">
+          <h3>불교식 리본 문구</h3>
+          <table class="ribbon-table">
+            <thead><tr><th>위치</th><th>리본 문구 예시</th></tr></thead>
+            <tbody>
+              <tr>
+                <td>상단 리본<br>(좌측)</td>
+                <td>
+                  <span class="ribbon-chip">극락왕생(極樂往生)</span>
+                  <span class="ribbon-chip">왕생극락(往生極樂)</span>
+                  <span class="ribbon-chip">나무아미타불(南無阿彌陀佛)</span>
+                  <span class="ribbon-chip">삼가 명복을 빕니다</span>
+                  <span class="ribbon-chip">합장(合掌)</span>
+                </td>
+              </tr>
+              <tr>
+                <td>하단 리본<br>(우측, 보내는 이)</td>
+                <td>
+                  <span class="ribbon-chip">○○사 신도 일동</span>
+                  <span class="ribbon-chip">○○불교회 일동</span>
+                  <span class="ribbon-chip">○○○ 합장</span>
+                  <span class="ribbon-chip">○○ 법우 일동</span>
+                </td>
+              </tr>
+              <tr>
+                <td>자주 쓰는<br>문구</td>
+                <td>
+                  <span class="ribbon-chip">삼가 영가의 극락왕생을 기원합니다</span>
+                  <span class="ribbon-chip">부처님의 품에서 편히 쉬소서</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="ribbon-notice">💡 불교식 장례에서는 '명복'보다 '극락왕생'을 쓰는 것이 더 적절합니다. '근조' 대신 '합장'을 쓰기도 하며, 상단에 '나무아미타불'을 적는 경우도 있습니다.</div>
+        </div>
+
+        <!-- 기독교 -->
+        <div id="ribbon-christian" class="ribbon-panel">
+          <h3>기독교식 리본 문구</h3>
+          <table class="ribbon-table">
+            <thead><tr><th>위치</th><th>리본 문구 예시</th></tr></thead>
+            <tbody>
+              <tr>
+                <td>상단 리본<br>(좌측)</td>
+                <td>
+                  <span class="ribbon-chip">하나님의 품에서 안식하소서</span>
+                  <span class="ribbon-chip">주 안에서 평안히 잠드소서</span>
+                  <span class="ribbon-chip">천국에서 안식하소서</span>
+                  <span class="ribbon-chip">부활을 소망합니다</span>
+                  <span class="ribbon-chip">애도(哀悼)</span>
+                </td>
+              </tr>
+              <tr>
+                <td>하단 리본<br>(우측, 보내는 이)</td>
+                <td>
+                  <span class="ribbon-chip">○○교회 성도 일동</span>
+                  <span class="ribbon-chip">○○○ 장로</span>
+                  <span class="ribbon-chip">○○구역 일동</span>
+                  <span class="ribbon-chip">○○ 목사</span>
+                </td>
+              </tr>
+              <tr>
+                <td>자주 쓰는<br>문구</td>
+                <td>
+                  <span class="ribbon-chip">삼가 위로를 드립니다</span>
+                  <span class="ribbon-chip">하나님의 위로가 함께하시길</span>
+                  <span class="ribbon-chip">주님의 위로가 있으시길</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="ribbon-notice">💡 기독교에서는 '명복'이나 '극락'이라는 표현 대신 '천국 안식', '주 안에서 잠들다' 등의 표현을 사용하는 것이 적절합니다. 분향 대신 헌화를 하는 것이 일반적입니다.</div>
+        </div>
+
+        <!-- 천주교 -->
+        <div id="ribbon-catholic" class="ribbon-panel">
+          <h3>천주교식 리본 문구</h3>
+          <table class="ribbon-table">
+            <thead><tr><th>위치</th><th>리본 문구 예시</th></tr></thead>
+            <tbody>
+              <tr>
+                <td>상단 리본<br>(좌측)</td>
+                <td>
+                  <span class="ribbon-chip">하느님 품에서 안식하소서</span>
+                  <span class="ribbon-chip">영원한 안식을 주소서</span>
+                  <span class="ribbon-chip">부활의 희망 안에서</span>
+                  <span class="ribbon-chip">삼가 명복을 빕니다</span>
+                  <span class="ribbon-chip">영원한 빛을 비추소서</span>
+                </td>
+              </tr>
+              <tr>
+                <td>하단 리본<br>(우측, 보내는 이)</td>
+                <td>
+                  <span class="ribbon-chip">○○성당 교우 일동</span>
+                  <span class="ribbon-chip">○○ 레지오 단원 일동</span>
+                  <span class="ribbon-chip">○○○ 올림</span>
+                  <span class="ribbon-chip">○○ 신부</span>
+                </td>
+              </tr>
+              <tr>
+                <td>자주 쓰는<br>문구</td>
+                <td>
+                  <span class="ribbon-chip">주님 안에서 편히 쉬소서</span>
+                  <span class="ribbon-chip">삼가 조의를 표합니다</span>
+                  <span class="ribbon-chip">하느님의 자비로우심을 빕니다</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="ribbon-notice">💡 천주교에서는 '하나님' 대신 '하느님'을 사용합니다. '부활'과 '영원한 안식'을 강조하는 문구가 적절하며, 분향과 헌화 모두 가능합니다.</div>
+        </div>
+
+        <div class="info-box" style="margin-top:20px;">
+          <p>💡 <strong>리본 문구 작성 팁:</strong> 고인의 종교를 모르는 경우 '근조' 또는 '삼가 고인의 명복을 빕니다'를 사용하시면 무난합니다. 보내는 이 란에는 단체명 또는 성명을 적어 주세요.</p>
+        </div>
+      </div>
+
+
 <script>
   function showPage(pageId) {
     // Hide all sections
@@ -974,6 +1390,15 @@
       showPage(this.dataset.goto);
     });
   });
+
+  // Ribbon tab switcher
+  function switchRibbonTab(btn, panelId) {
+    const section = btn.closest('.content-section');
+    section.querySelectorAll('.ribbon-tab').forEach(t => t.classList.remove('active'));
+    section.querySelectorAll('.ribbon-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById(panelId).classList.add('active');
+  }
 </script>
 
 </body>
